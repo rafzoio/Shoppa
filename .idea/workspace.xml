@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="aa317064-0d4a-4971-9f78-1f1b05fbd691" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game-buy.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sqlite-jdbc-3.39.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/ConsoleApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/AddressDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/CustomerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/DAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/OrderItemDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/ProductDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/domain/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/domain/Basket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/domain/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/domain/OrderItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/domain/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/RootHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/basket/ClearBasketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/basket/DisplayBasketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/AddCustomerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/DeleteCustomerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/DisplayCustomersHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/ProcessAddCustomerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/ProcessUpdateCustomerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/UpdateCustomerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AddProductHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AddProductToBasketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AdjustQuantityOfProductInBasketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/DeleteProductHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/DisplayProductsHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/ProcessAddProductHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/ProcessAddProductToBasketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/ProcessAdjustQuantityOfProductInBasketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/ProcessUpdateProductHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/RemoveProductFromBasketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/UpdateProductHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/AddressService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/BasketService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/OrderItemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/utils/DisplayTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/utils/RequestStringToMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/gamebuy/store/utils/RequestStringToMapTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2JMKEF4gPJteNEYKxqjDaqMr9LC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "database.data.extractors.current.id": "Comma-separated (CSV)_id",
+    "last_directory_selection": "C:/Users/rzoio/IdeaProjects/GameBuy/src/main/java",
+    "last_opened_file_path": "C:/Users/rzoio/IdeaProjects/GameBuy/src/main/java/com/gamebuy/store/handler/product",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.gamebuy.store.handler.product" />
+      <recent name="com.gamebuy.store.handler" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rzoio\IdeaProjects\GameBuy\src\main\java\com\gamebuy\store\handler\product" />
+      <recent name="C:\Users\rzoio\IdeaProjects\GameBuy\src\main\java\com\gamebuy\store\utils" />
+      <recent name="C:\Users\rzoio\IdeaProjects\GameBuy\src\main\java\com\gamebuy\store\handler\customer" />
+      <recent name="C:\Users\rzoio\IdeaProjects\GameBuy\src\main\java\com\gamebuy\store\handler" />
+      <recent name="C:\Users\rzoio\IdeaProjects\GameBuy\src\main\java\com\gamebuy\store\domain" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.gamebuy.store.dao.DAO" />
+      <recent name="DAO" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.gamebuy.store.service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.gamebuy.store.handler.product" />
+      <recent name="com.gamebuy.store.handler.customer" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gamebuy.store.Main" />
+      <module name="GameBuy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gamebuy.store.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderItemServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GameBuy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gamebuy.store.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gamebuy.store.service" />
+      <option name="MAIN_CLASS_NAME" value="com.gamebuy.store.service.OrderItemServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RequestStringToMapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GameBuy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gamebuy.store.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gamebuy.store.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.gamebuy.store.utils.RequestStringToMapTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.OrderItemServiceTest" />
+      <item itemvalue="JUnit.RequestStringToMapTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.OrderItemServiceTest" />
+        <item itemvalue="JUnit.RequestStringToMapTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aa317064-0d4a-4971-9f78-1f1b05fbd691" name="Changes" comment="" />
+      <created>1671882402471</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671882402471</updated>
+      <workItem from="1671882405086" duration="64634000" />
+      <workItem from="1672241413224" duration="2945000" />
+      <workItem from="1672245609498" duration="12235000" />
+      <workItem from="1672274578901" duration="3693000" />
+      <workItem from="1672321529963" duration="1633000" />
+      <workItem from="1672333335375" duration="801000" />
+      <workItem from="1672836438885" duration="1589000" />
+      <workItem from="1672933197357" duration="4749000" />
+      <workItem from="1673005028293" duration="2010000" />
+      <workItem from="1673011821849" duration="181000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/ProductDAO.java</url>
+          <line>126</line>
+          <properties class="com.gamebuy.store.dao.ProductDAO" method="updateProduct">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/OrderItemDAO.java</url>
+          <line>93</line>
+          <properties class="com.gamebuy.store.dao.OrderItemDAO" method="deleteOrderItem">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/AddressDAO.java</url>
+          <line>129</line>
+          <properties class="com.gamebuy.store.dao.AddressDAO" method="updateAddress">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/OrderItemService.java</url>
+          <line>84</line>
+          <properties class="com.gamebuy.store.service.OrderItemService" method="getOrderItem">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/ProductService.java</url>
+          <line>34</line>
+          <properties class="com.gamebuy.store.service.ProductService" method="filterProductsByType">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/CustomerDAO.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/CustomerDAO.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="150" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/CustomerDAO.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="151" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/CustomerDAO.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/CustomerDAO.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="153" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AdjustQuantityOfProductInBasketHandler.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AddProductToBasketHandler.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="160" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/OrderItemService.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/OrderItemService.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="164" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/DisplayProductsHandler.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/ProductService.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/ProductService.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/utils/RequestStringToMap.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/utils/RequestStringToMap.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="178" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/DisplayProductsHandler.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/DisplayProductsHandler.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="180" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="javascript-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="statement" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/GameBuy$Main.ic" NAME="Main Coverage Results" MODIFIED="1672242871896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.gamebuy.store.*</FILTER>
+    </SUITE>
+  </component>
+</project>
