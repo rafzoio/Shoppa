@@ -26,16 +26,6 @@ public class Product {
 		this.price = price;
 	}
 
-	public Product() {
-	}
-
-	public Product(String SKU, String description, String category, int price) {
-		this.SKU = SKU;
-		this.description = description;
-		this.category = category;
-		this.price = price;
-	}
-
 	public int getId() {
 		return id;
 	}

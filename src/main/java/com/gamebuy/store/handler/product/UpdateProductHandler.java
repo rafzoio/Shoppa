@@ -30,7 +30,7 @@ public class UpdateProductHandler implements HttpHandler {
 
 		int id = Integer.parseInt(params.get("id"));
 
-		Product product = null;
+		Product product;
 
 		product = productDAO.getProduct(id);
 

@@ -54,36 +54,6 @@ public Address generateAddressFromResultSet(ResultSet rs) {
     	
 		return address;
 	}
-	/*
-	public ArrayList<Customer> getAllCustomers() throws SQLException {
-		
-		Connection conn = null;
-		Statement statement;
-		
-		ArrayList<Customer> customers = new ArrayList<Customer>();
-        String query = "SELECT * FROM customer";
-
-    	ResultSet rs = null;
-		try {
-			conn = getConnection();
-			statement = conn.createStatement();
-			rs = statement.executeQuery(query);
-			while ( rs.next() ) {
-				Customer customer = generateCustomerFromResultSet(rs);
-			    customers.add(customer);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally { 
-			if (conn != null) {
-				conn.close();
-			}
-		}
-    	
-		return customers;
-	}
-*/
 	public void addAddress(Address address) {
 		
 		Connection conn = null;

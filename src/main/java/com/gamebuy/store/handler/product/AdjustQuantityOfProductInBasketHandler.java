@@ -1,6 +1,5 @@
 package com.gamebuy.store.handler.product;
 
-import com.gamebuy.store.dao.OrderItemDAO;
 import com.gamebuy.store.domain.OrderItem;
 import com.gamebuy.store.domain.Product;
 import com.gamebuy.store.service.OrderItemService;
@@ -25,7 +24,6 @@ public class AdjustQuantityOfProductInBasketHandler implements HttpHandler {
                 new OutputStreamWriter(exchange.getResponseBody() ));
 
         OrderItemService orderItemService = OrderItemService.getInstance();
-        OrderItemDAO orderItemDAO = new OrderItemDAO();
 
         HashMap<String, String> params = requestStringToMap(exchange.getRequestURI().getQuery());
 

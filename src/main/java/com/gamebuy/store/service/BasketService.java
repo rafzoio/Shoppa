@@ -1,7 +1,6 @@
 package com.gamebuy.store.service;
 
 import com.gamebuy.store.dao.OrderItemDAO;
-import com.gamebuy.store.dao.ProductDAO;
 import com.gamebuy.store.domain.OrderItem;
 
 import java.util.ArrayList;
@@ -11,18 +10,15 @@ public class BasketService {
     private static BasketService instance;
 
     private final OrderItemDAO orderItemDAO;
-    private final ProductDAO productDAO;
 
-    private BasketService(OrderItemDAO orderItemDAO, ProductDAO productDAO) {
+    private BasketService(OrderItemDAO orderItemDAO) {
         this.orderItemDAO = orderItemDAO;
-        this.productDAO = productDAO;
     }
 
     public static BasketService getInstance() {
         OrderItemDAO orderItemDAO = new OrderItemDAO();
-        ProductDAO productDAO = new ProductDAO();
         if (instance == null) {
-            instance = new BasketService(orderItemDAO, productDAO);
+            instance = new BasketService(orderItemDAO);
         }
         return instance;
     }

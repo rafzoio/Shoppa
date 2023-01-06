@@ -8,7 +8,6 @@ import com.sun.net.httpserver.HttpHandler;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.net.URI;
 import java.util.HashMap;
 
 import static com.gamebuy.store.utils.RequestStringToMap.requestInputStreamToMap;
@@ -22,7 +21,6 @@ public class ProcessAddProductToBasketHandler implements HttpHandler{
 
 		OrderItemService orderItemService = OrderItemService.getInstance();
 
-		URI requestURI = exchange.getRequestURI();
 		HashMap<String, String> params = requestInputStreamToMap(exchange.getRequestBody());
 		int productId = Integer.parseInt(params.get("id"));
 		int basketId = 1;

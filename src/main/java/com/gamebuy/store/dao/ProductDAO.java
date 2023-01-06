@@ -12,7 +12,7 @@ public class ProductDAO extends DAO {
 
 	public Product generateProductFromResultSet(ResultSet rs) {
 
-		Product product = null;
+		Product product;
 
 		try {
 			int id = rs.getInt( "id" );
@@ -35,7 +35,7 @@ public class ProductDAO extends DAO {
 		Connection conn = null;
 		Statement statement;
 
-		Product product = null;
+		Product product;
 		String query;
 
 		query = "SELECT * FROM product WHERE id = " + id;
@@ -61,10 +61,10 @@ public class ProductDAO extends DAO {
 		Connection conn = null;
 		Statement statement;
 
-		ArrayList<Product> products = new ArrayList<Product>();
+		ArrayList<Product> products = new ArrayList<>();
 		String query = "SELECT * FROM product";
 
-		ResultSet rs = null;
+		ResultSet rs;
 		try {
 			conn = getConnection();
 			statement = conn.createStatement();
@@ -82,7 +82,7 @@ public class ProductDAO extends DAO {
 		return products;
 	}
 
-	public void addProduct(Product product) throws SQLException {
+	public void addProduct(Product product) {
 
 		Connection conn = null;
 		Statement statement;
@@ -133,15 +133,15 @@ public class ProductDAO extends DAO {
 
 		Product existingProduct = getProduct(id);
 
-		if (SKU == "") {
+		if (SKU.equals("")) {
 			SKU = existingProduct.getSKU();
 		}
 
-		if (description == "") {
+		if (description.equals("")) {
 			description = existingProduct.getDescription();
 		}
 
-		if (category == "") {
+		if (category.equals("")) {
 			category = existingProduct.getCategory();
 		}
 //TODO fix this

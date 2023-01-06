@@ -41,8 +41,8 @@ public class OrderItemService {
 
     /**
      * Gets the corresponding product of an OrderItem.
-     * @param orderItem
-     * @return product
+     * @param OrderItem
+     * @return Product
      *
      */
     public Product getOrderItemProduct(OrderItem orderItem) {
@@ -61,8 +61,7 @@ public class OrderItemService {
      */
     public int getPriceOfOrderItem(OrderItem orderItem) {
         int individualPrice = getOrderItemProduct(orderItem).getPrice();
-        int orderItemPrice = individualPrice * orderItem.getQuantity();
-        return orderItemPrice;
+        return individualPrice * orderItem.getQuantity();
     }
 
     public void addQuantityToOrderItem(OrderItem orderItem, int quantityToAdd) {

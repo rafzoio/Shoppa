@@ -9,18 +9,16 @@ public class AddressService {
     private static AddressService instance;
 
     private final AddressDAO addressDAO;
-    private final CustomerDAO customerDAO;
 
-    private AddressService(AddressDAO addressDAO, CustomerDAO customerDAO) {
+    private AddressService(AddressDAO addressDAO) {
         this.addressDAO = addressDAO;
-        this.customerDAO = customerDAO;
     }
 
     public static AddressService getInstance() {
         AddressDAO addressDAO = new AddressDAO();
         CustomerDAO customerDAO = new CustomerDAO();
         if (instance == null) {
-            instance = new AddressService(addressDAO, customerDAO);
+            instance = new AddressService(addressDAO);
         }
         return instance;
     }

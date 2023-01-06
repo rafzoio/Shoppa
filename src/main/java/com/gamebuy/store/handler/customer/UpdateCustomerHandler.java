@@ -33,7 +33,7 @@ public class UpdateCustomerHandler implements HttpHandler {
 
 		int id = Integer.parseInt(params.get("id"));
 
-		Customer customer = null;
+		Customer customer;
 
 		customer = customerDAO.getCustomer(id);
 
