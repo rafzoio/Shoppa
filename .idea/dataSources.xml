@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="game-buy" uuid="e90a12bc-0890-45db-8ed2-3c203b22bf02">
+    <data-source source="LOCAL" name="game-buy.db" uuid="14be9835-938c-4748-bb5b-95b507c2fd89">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\rzoio\IdeaProjects\GameBuy\game-buy.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/game-buy.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
-      <libraries>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.39.2/sqlite-jdbc-3.39.2.jar</url>
-        </library>
-      </libraries>
     </data-source>
   </component>
 </project>
