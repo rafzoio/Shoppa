@@ -36,3 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/.idea/dataSources.local.xml
+/.idea/dataSources/e90a12bc-0890-45db-8ed2-3c203b22bf02.xml
+/.idea/shelf/Uncommitted_changes_before_Update_at_10_01_2023_12_49_[Changes]/shelved.patch
+/.idea/shelf/Uncommitted_changes_before_Update_at_10_01_2023_12_49__Changes_.xml
