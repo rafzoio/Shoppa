@@ -26,9 +26,11 @@ public class RootHandler implements HttpHandler {
 						"<body>" +
 						"<div class=\"container\">" +
 						"<h1>GameBuy</h1>" +
-						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/products\">Products</a></button> " +
-						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/basket\">Basket</a></button> " +
-						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/customers\">Customers</a></button> " +
+						"<p>Login or register below:</p>" +
+						"<br></br>" +
+						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/loginForm\">Login</a></button> " +
+						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/registerForm\">Register</a></button> " +
+
 						"</div>" +
 						"</body>" +
 						"</html>"

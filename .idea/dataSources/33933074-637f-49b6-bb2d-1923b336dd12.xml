@@ -1324,143 +1324,165 @@
     <table id="488" parent="166" name="sqlite_sequence">
       <System>1</System>
     </table>
-    <column id="489" parent="482" name="customerId">
+    <table id="489" parent="166" name="user"/>
+    <column id="490" parent="482" name="customerId">
       <DasType>STRING|0s</DasType>
       <Position>1</Position>
     </column>
-    <column id="490" parent="482" name="house">
+    <column id="491" parent="482" name="house">
       <DasType>STRING|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="491" parent="482" name="addressLine1">
+    <column id="492" parent="482" name="addressLine1">
       <DasType>STRING|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="492" parent="482" name="addressLine2">
+    <column id="493" parent="482" name="addressLine2">
       <DasType>STRING|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="493" parent="482" name="country">
+    <column id="494" parent="482" name="country">
       <DasType>STRING|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="494" parent="482" name="postCode">
+    <column id="495" parent="482" name="postCode">
       <DasType>STRING|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="495" parent="483" name="id">
+    <column id="496" parent="483" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>INTEGER|0s</DasType>
       <Position>1</Position>
     </column>
-    <key id="496" parent="483" name="basket_pk">
+    <key id="497" parent="483" name="basket_pk">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="497" parent="484" name="id">
+    <column id="498" parent="484" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>INTEGER|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="498" parent="484" name="firstName">
+    <column id="499" parent="484" name="firstName">
       <DasType>STRING|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="499" parent="484" name="secondName">
+    <column id="500" parent="484" name="secondName">
       <DasType>STRING|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="500" parent="484" name="telephoneNumber">
+    <column id="501" parent="484" name="telephoneNumber">
       <DasType>STRING|0s</DasType>
       <Position>4</Position>
     </column>
-    <key id="501" parent="484">
+    <key id="502" parent="484">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="502" parent="485" name="product_id">
+    <column id="503" parent="485" name="product_id">
       <DasType>INTEGER|0s</DasType>
       <Position>1</Position>
     </column>
-    <column id="503" parent="485" name="quantity">
+    <column id="504" parent="485" name="quantity">
       <DasType>INTEGER|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="504" parent="485" name="basket_id">
+    <column id="505" parent="485" name="basket_id">
       <DasType>INTEGER|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="505" parent="485" name="sqlite_autoindex_orderItem_1">
+    <index id="506" parent="485" name="sqlite_autoindex_orderItem_1">
       <ColNames>basket_id
 product_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="506" parent="485" name="orderItem_pk">
+    <key id="507" parent="485" name="orderItem_pk">
       <ColNames>basket_id
 product_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_orderItem_1</UnderlyingIndexName>
     </key>
-    <column id="507" parent="486" name="id">
+    <column id="508" parent="486" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>INTEGER|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="508" parent="486" name="SKU">
+    <column id="509" parent="486" name="SKU">
       <DasType>STRING|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="509" parent="486" name="description">
+    <column id="510" parent="486" name="description">
       <DasType>STRING|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="510" parent="486" name="category">
+    <column id="511" parent="486" name="category">
       <DasType>STRING|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="511" parent="486" name="price">
+    <column id="512" parent="486" name="price">
       <DasType>INTEGER|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="512" parent="486" name="available">
+    <column id="513" parent="486" name="available">
       <DasType>INTEGER|0s</DasType>
       <Position>6</Position>
     </column>
-    <key id="513" parent="486">
+    <key id="514" parent="486">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="514" parent="487" name="type">
+    <column id="515" parent="487" name="type">
       <DasType>TEXT|0s</DasType>
       <Position>1</Position>
     </column>
-    <column id="515" parent="487" name="name">
+    <column id="516" parent="487" name="name">
       <DasType>TEXT|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="516" parent="487" name="tbl_name">
+    <column id="517" parent="487" name="tbl_name">
       <DasType>TEXT|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="517" parent="487" name="rootpage">
+    <column id="518" parent="487" name="rootpage">
       <DasType>INT|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="518" parent="487" name="sql">
+    <column id="519" parent="487" name="sql">
       <DasType>TEXT|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="519" parent="488" name="name">
+    <column id="520" parent="488" name="name">
       <Position>1</Position>
     </column>
-    <column id="520" parent="488" name="seq">
+    <column id="521" parent="488" name="seq">
       <Position>2</Position>
     </column>
+    <column id="522" parent="489" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>integer|0s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="523" parent="489" name="username">
+      <DasType>TEXT|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="524" parent="489" name="password">
+      <DasType>TEXT|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="525" parent="489" name="role">
+      <DasType>TEXT|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <key id="526" parent="489" name="user_pk">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

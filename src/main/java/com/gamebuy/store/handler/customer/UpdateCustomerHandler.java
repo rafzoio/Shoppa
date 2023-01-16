@@ -10,86 +10,83 @@ import com.sun.net.httpserver.HttpHandler;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.Map;
+import java.util.HashMap;
 
-import static com.gamebuy.store.utils.RequestStringToMap.requestStringToMap;
+import static com.gamebuy.store.utils.RequestStringToMap.requestInputStreamToMap;
 
 public class UpdateCustomerHandler implements HttpHandler {
 
 	@Override
 	public void handle(HttpExchange exchange) throws IOException {
 
-		System.out.println("UpdateCustomerHandler called");
+		System.out.println("ProcessUpdateCustomerHandler called");
 		exchange.sendResponseHeaders(200,0);
 
 		BufferedWriter out = new BufferedWriter(
-				new OutputStreamWriter(exchange.getResponseBody() ));
+				new OutputStreamWriter(exchange.getResponseBody()));
 
 		CustomerDAO customerDAO = new CustomerDAO();
 		AddressService addressService = AddressService.getInstance();
 
-		Map <String,String> params = requestStringToMap(exchange.getRequestURI().getQuery());
-		System.out.println(params);
+		HashMap<String, String> params = requestInputStreamToMap(exchange.getRequestBody());
 
 		int id = Integer.parseInt(params.get("id"));
+		String firstName = params.get("firstName");
+		String secondName = params.get("secondName");
+		String telephoneNumber = params.get("telephoneNumber");
+		String house = params.get("house");
+		String addressLine1 = params.get("addressLine1");
+		String addressLine2 = params.get("addressLine2");
+		String country = params.get("country");
+		String postcode = params.get("postcode");
 
-		Customer customer;
+		customerDAO.updateCustomer(id, firstName, secondName, telephoneNumber);
+		Customer newCustomer = customerDAO.getCustomer(id);
 
-		customer = customerDAO.getCustomer(id);
-
-		Address address = addressService.getCustomerAddress(id);
+		Address address = new Address(id, house, addressLine1, addressLine2, country, postcode);
+		addressService.updateCustomerAddress(address);
 
 		out.write(
 				"<html>" +
 						"<meta charset=\"utf-8\">"+
-						"<head> " +
-						"<title>Edit Customer</title> "+
-						"<meta charset=\"utf-8\">"+
+						"<head> <title>Customer Updated</title> "+
 						"<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">" +
 						"</head>" +
 						"<body>" +
-						"<div class=\"container\">"+
-						"<h1>Edit Customer</h1>"+
-						"<form method=\"post\" action=\"/customers/update\">" +
-						"<div class=\"form-group\"> "+
+						"<div class=\"container\">" +
+						"<h1>Customer Updated</h1>"+
+						"<table class=\"table\">" +
+						"<thead>" +
+						"  <tr>" +
+						"    <th>First Name</th>" +
+						"    <th>Second Name</th>" +
+						"    <th>Telephone Number</th>" +
+						"    <th>Address</th>" +
 
-						"<label for=\"id\">ID</label> " +
-						"<input value=\"" + customer.getId() + "\" readonly=\"readonly\" type=\"text\" class=\"form-control\" name=\"id\" id=\"id\" required> " +
-
-						"<label for=\"firstName\">First name</label> " +
-						"<input value=\"" + customer.getFirstName() + "\" type=\"text\" class=\"form-control\" name=\"firstName\" id=\"firstName\" required> " +
-
-						"<label for=\"secondName\">Second name</label> " +
-						"<input value=\"" + customer.getSecondName() + "\" type=\"text\" class=\"form-control\" name=\"secondName\" id=\"secondName\" required> " +
-
-						"<label for=\"telephoneNumber\">Telephone number</label> " +
-						"<input value=\"" + customer.getTelephoneNumber() + "\" type=\"text\" class=\"form-control\" name=\"telephoneNumber\" id=\"telephoneNumber\" required> " +
-
-						"<label for=\"house\">House</label> " +
-						"<input value=\"" + address.getHouse() + "\" type=\"text\" class=\"form-control\" name=\"house\" id=\"house\" required> " +
-
-						"<label for=\"addressLine1\">Address line 1</label> " +
-						"<input value=\"" + address.getAddressLine1() + "\" type=\"text\" class=\"form-control\" name=\"addressLine1\" id=\"addressLine1\" required> " +
-
-						"<label for=\"addressLine2\">Address line 2</label> " +
-						"<input value=\"" + address.getAddressLine2() + "\" type=\"text\" class=\"form-control\" name=\"addressLine2\" id=\"addressLine2\" required> " +
-
-						"<label for=\"country\">Country</label> " +
-						"<input value=\"" + address.getCountry() + "\" type=\"text\" class=\"form-control\" name=\"country\" id=\"country\" required> " +
-
-						"<label for=\"postcode\">Postcode</label> " +
-						"<input value=\"" + address.getPostcode() + "\" type=\"text\" class=\"form-control\" name=\"postcode\" id=\"postcode\" required> " +
-
-						"</div>" +
-						"<button type=\"submit\" class=\"btn btn-primary\">Submit</button> " +
-						"</form>" +
-						"<a href=\"/customers\">Cancel</a>"+
+						"  </tr>" +
+						"</thead>" +
+						"<tbody>" +
+						"  <tr>"       +
+						"    <td>"+ newCustomer.getFirstName() + "</td>" +
+						"    <td>"+ newCustomer.getSecondName() + "</td>" +
+						"    <td>"+ newCustomer.getTelephoneNumber() + "</td>" +
+						"	 <td>" +
+						"	 	<div style=\"display: flex; flex-direction: column\">" +
+						"	 	<span>" + address.getHouse() + "</span>" +
+						"	 	<span>" + address.getAddressLine1() + "</span>" +
+						"	 	<span>" + address.getAddressLine2() + "</span>" +
+						"	 	<span>" + address.getCountry() + "</span>" +
+						"	 	<span>" + address.getPostcode() + "</span>" +
+						"	 	</div>" +
+						"	 </td>" +
+						"  </tr>" +
+						"</tbody>" +
+						"</table>" +
+						"<a href=\"/customers\">Back to all customers</a>" +
 						"</div>" +
 						"</body>" +
 						"</html>");
 
 		out.close();
-
 	}
-
 }
