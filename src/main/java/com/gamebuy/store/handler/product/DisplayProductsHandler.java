@@ -2,6 +2,8 @@ package com.gamebuy.store.handler.product;
 
 import com.gamebuy.store.dao.ProductDAO;
 import com.gamebuy.store.domain.Product;
+import com.gamebuy.store.domain.Role;
+import com.gamebuy.store.service.LoginService;
 import com.gamebuy.store.service.ProductService;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -21,18 +23,18 @@ public class DisplayProductsHandler implements HttpHandler {
 
 		System.out.println("DisplayProductsHandler called");
 
+		ProductDAO productDAO = new ProductDAO();
+		ProductService productService = ProductService.getInstance();
+		LoginService loginService = LoginService.getInstance();
+
 		exchange.sendResponseHeaders(200,0);
+
+		HashMap<String, String> params = requestInputStreamToMap(exchange.getRequestBody());
 
 		BufferedWriter out = new BufferedWriter(
 				new OutputStreamWriter(exchange.getResponseBody()));
 
-		ProductDAO productDAO = new ProductDAO();
-		ProductService productService = ProductService.getInstance();
-
 		ArrayList<Product> allProducts = productDAO.getAllProducts();
-
-
-		HashMap<String, String> params = requestInputStreamToMap(exchange.getRequestBody());
 
 		if (params.isEmpty()) {
 			System.out.println(params);
@@ -92,11 +94,17 @@ public class DisplayProductsHandler implements HttpHandler {
 							"    <td>£ "+ product.getPrice() + ".00</td>" +
 							"	 <td>" + product.getAvailable() + "</td>" +
 							"    <td> " +
-							"	 <div style=\"display: flex; flex-direction: column\">" +
-							"    <span><a href=\"/products/delete?id=" + product.getId() + "\"> Delete </a></span>" +
-							"    <span><a href=\"/products/updateForm?id=" + product.getId() + "\"> Update </a></span>" +
-							"    <span><a href=\"/products/addToBasketForm?id=" + product.getId() + "\"> Add to basket </a></span>" +
-							"	 </div>" +
+							"	 <div style=\"display: flex; flex-direction: column\">"
+			);
+			if (loginService.checkRoleOfCurrentUser(Role.ADMIN)) {
+				out.write("    <span><a href=\"/products/delete?id=" + product.getId() + "\"> Delete </a></span>" +
+						"    <span><a href=\"/products/updateForm?id=" + product.getId() + "\"> Update </a></span>"
+				);
+			} else {
+				out.write("    <span><a href=\"/products/addToBasketForm?id=" + product.getId() + "\"> Add to basket </a></span>");
+			}
+			out.write(
+					"	 </div>" +
 							"    </td>" +
 							"  </tr>"
 			);
@@ -107,7 +115,7 @@ public class DisplayProductsHandler implements HttpHandler {
 						"<p> Warning: deleting a product will also remove that product from the basket." +
 						"<div>" +
 						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/products/addForm\">Add a new product</a></button> " +
-						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/\">Back to menu</a></button> " +
+						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/menu\">Back to menu</a></button> " +
 						"</div>" +
 						"</div>" +
 
@@ -115,9 +123,5 @@ public class DisplayProductsHandler implements HttpHandler {
 						"</html>");
 
 		out.close();
-
 	}
-
-
-
 }

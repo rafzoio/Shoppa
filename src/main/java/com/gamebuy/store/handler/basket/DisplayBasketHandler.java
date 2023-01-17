@@ -2,7 +2,9 @@ package com.gamebuy.store.handler.basket;
 
 import com.gamebuy.store.domain.OrderItem;
 import com.gamebuy.store.domain.Product;
+import com.gamebuy.store.domain.Role;
 import com.gamebuy.store.service.BasketService;
+import com.gamebuy.store.service.LoginService;
 import com.gamebuy.store.service.OrderItemService;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -17,13 +19,19 @@ public class DisplayBasketHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
-        exchange.sendResponseHeaders(200, 0);
+        LoginService loginService = LoginService.getInstance();
+        BasketService basketService = BasketService.getInstance();
+        OrderItemService orderItemService = OrderItemService.getInstance();
+
+        if (loginService.checkRoleOfCurrentUser(Role.CUSTOMER)) {
+            exchange.sendResponseHeaders(200,0);
+        } else {
+            exchange.getResponseHeaders().add("Location", "http://localhost:8090/accessDenied");
+            exchange.sendResponseHeaders(307,0);
+        }
 
         BufferedWriter out = new BufferedWriter(
                 new OutputStreamWriter(exchange.getResponseBody()));
-
-        BasketService basketService = BasketService.getInstance();
-        OrderItemService orderItemService = OrderItemService.getInstance();
 
         ArrayList<OrderItem> itemsInBasket = basketService.getOrderItemsInBasket(1);
 
@@ -74,7 +82,7 @@ public class DisplayBasketHandler implements HttpHandler {
                         "</table>" +
                         "<p>Total price: £ " + basketService.priceOfBasket(1) + ".00</p>" +
                         "<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/basket/clear\">Clear Basket</a></button> " +
-                        "<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/\">Back to menu</a></button> " +
+                        "<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/menu\">Back to menu</a></button> " +
                         "</div>" +
 
                         "</body>" +

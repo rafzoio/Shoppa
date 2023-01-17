@@ -1,5 +1,6 @@
 package com.gamebuy.store.handler;
 
+import com.gamebuy.store.service.LoginService;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -14,6 +15,8 @@ public class RootHandler implements HttpHandler {
 
 		exchange.sendResponseHeaders(200,0);
 
+		LoginService loginService = LoginService.getInstance();
+
 		BufferedWriter out = new BufferedWriter(
 				new OutputStreamWriter(exchange.getResponseBody()));
 
@@ -25,13 +28,20 @@ public class RootHandler implements HttpHandler {
 						"</head>" +
 						"<body>" +
 						"<div class=\"container\">" +
-						"<h1>GameBuy</h1>" +
-						"<p>Login or register below:</p>" +
-						"<br></br>" +
-						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/loginForm\">Login</a></button> " +
-						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/registerForm\">Register</a></button> " +
+						"<h1>GameBuy</h1>"
+		);
 
-						"</div>" +
+
+		if (loginService.isUserLoggedIn()) {
+			out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/logout\">Log Out</a></button>");
+		} else {
+			out.write("<p>Login or register below:</p>");
+			out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/registerForm\">Register</a></button>");
+			out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/loginForm\">Login</a></button>");
+		}
+
+		out.write(
+				"</div>" +
 						"</body>" +
 						"</html>"
 		);

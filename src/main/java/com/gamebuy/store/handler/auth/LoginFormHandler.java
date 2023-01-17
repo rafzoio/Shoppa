@@ -36,7 +36,7 @@ public class LoginFormHandler implements HttpHandler {
                         "<input type=\"text\" class=\"form-control\" name=\"password\" id=\"password\" required> " +
 
                         "</div>" +
-                        "<button type=\"submit\" class=\"btn btn-primary\">Sign up</button> " +
+                        "<button type=\"submit\" class=\"btn btn-primary\">Login</button> " +
                         "</form>" +
                         "<a href=\"/\">Cancel</a>"+
                         "</div>" +

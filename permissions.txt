@@ -1,0 +1,38 @@
+All:
+    RootHandler
+    MenuHandler
+
+    LoginFormHandler
+    LoginHandler
+    LogOutHandler
+    RegisterFormHandler
+    RegisterHandler
+
+    DisplayProductsHandler
+
+Admin only:
+    AddCustomerFormHandler
+    AddCustomerHandler
+    DeleteCustomerHandler
+    DisplayCustomersHandler
+    UpdateCustomerFormHandler
+    UpdateCustomerHandler
+
+    AddProductFormHandler
+    AddProductHandler
+    DeleteProductHandler
+    RemoveProductFromBasketHandler
+    UpdateProductFormHandler
+    UpdateProductHandler
+
+Customer only:
+    AdjustQuantityOfProductInBasketFormHandler
+    AdjustQuantityOfProductInBasketHandler
+    AddProductToBasketFormHandler
+    AddProductToBasketHandler
+
+    ClearBasketHandler
+    DisplayBasketHandler
+
+
+

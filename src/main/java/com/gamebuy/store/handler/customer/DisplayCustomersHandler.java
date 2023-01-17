@@ -3,7 +3,9 @@ package com.gamebuy.store.handler.customer;
 import com.gamebuy.store.dao.CustomerDAO;
 import com.gamebuy.store.domain.Address;
 import com.gamebuy.store.domain.Customer;
+import com.gamebuy.store.domain.Role;
 import com.gamebuy.store.service.AddressService;
+import com.gamebuy.store.service.LoginService;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -19,16 +21,21 @@ public class DisplayCustomersHandler implements HttpHandler {
 
 		System.out.println("DisplayCustomersHandler Called");
 
-		exchange.sendResponseHeaders(200,0);
+		LoginService loginService = LoginService.getInstance();
+		AddressService addressService = AddressService.getInstance();
+		CustomerDAO customerDAO = new CustomerDAO();
+
+		if (loginService.checkRoleOfCurrentUser(Role.ADMIN)) {
+			exchange.sendResponseHeaders(200,0);
+		} else {
+			exchange.getResponseHeaders().add("Location", "http://localhost:8090/accessDenied");
+			exchange.sendResponseHeaders(307,0);
+		}
 
 		BufferedWriter out = new BufferedWriter(
 				new OutputStreamWriter(exchange.getResponseBody()));
 
-		CustomerDAO customerDAO = new CustomerDAO();
-		AddressService addressService = AddressService.getInstance();
-
 		Address address;
-
 		ArrayList<Customer> allCustomers = customerDAO.getAllCustomers();
 
 		out.write(
@@ -84,7 +91,7 @@ public class DisplayCustomersHandler implements HttpHandler {
 						"</table>" +
 						"<div>" +
 						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/customers/addForm\">Add a new customer</a></button> " +
-						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/\">Back to menu</a></button> " +
+						"<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/menu\">Back to menu</a></button> " +
 						"</div>" +
 						"</div>" +
 						"</body>" +
@@ -93,7 +100,4 @@ public class DisplayCustomersHandler implements HttpHandler {
 		out.close();
 
 	}
-
-
-
 }

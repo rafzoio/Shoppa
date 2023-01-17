@@ -1,10 +1,8 @@
 package com.gamebuy.store;
 
+import com.gamebuy.store.handler.MenuHandler;
 import com.gamebuy.store.handler.RootHandler;
-import com.gamebuy.store.handler.auth.LoginFormHandler;
-import com.gamebuy.store.handler.auth.LoginHandler;
-import com.gamebuy.store.handler.auth.RegisterFormHandler;
-import com.gamebuy.store.handler.auth.RegisterHandler;
+import com.gamebuy.store.handler.auth.*;
 import com.gamebuy.store.handler.basket.ClearBasketHandler;
 import com.gamebuy.store.handler.basket.DisplayBasketHandler;
 import com.gamebuy.store.handler.customer.*;
@@ -17,12 +15,19 @@ import java.net.InetSocketAddress;
 public class Main {
 
     static final private int PORT = 8090;
-
     public static void main(String[] args) throws IOException {
 
         HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
 
+        server.createContext("/menu", new MenuHandler());
         server.createContext("/", new RootHandler() );
+        server.createContext("/accessDenied", new AccessDeniedHandler());
+
+        server.createContext("/auth/registerForm", new RegisterFormHandler());
+        server.createContext("/auth/register", new RegisterHandler());
+        server.createContext("/auth/loginForm", new LoginFormHandler());
+        server.createContext("/auth/login", new LoginHandler());
+        server.createContext("/auth/logout", new LogOutHandler());
 
         server.createContext("/products", new DisplayProductsHandler());
         server.createContext("/products/delete", new DeleteProductHandler());
@@ -46,11 +51,6 @@ public class Main {
 
         server.createContext("/basket", new DisplayBasketHandler());
         server.createContext("/basket/clear", new ClearBasketHandler());
-
-        server.createContext("/auth/registerForm", new RegisterFormHandler());
-        server.createContext("/auth/register", new RegisterHandler());
-        server.createContext("/auth/loginForm", new LoginFormHandler());
-        server.createContext("/auth/login", new LoginHandler());
 
         server.setExecutor(null);
         server.start();

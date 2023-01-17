@@ -62,7 +62,7 @@ public class UserDAO extends DAO {
 		User user;
 		String query;
 
-		query = "SELECT * FROM user WHERE username = " + username;
+		query = "SELECT * FROM user WHERE username = '" + username + "';";
 
 		ResultSet rs;
 
