@@ -93,7 +93,19 @@ public class ProductDAO extends DAO {
 		int available = product.getAvailable();
 		int price = product.getPrice();
 
-		String query = "INSERT INTO product (SKU, description, category, available, price) VALUES ('" + SKU + "','" + description + "','" + category + "',"+ available + "," + price + ");" ;
+		String query =
+				"INSERT INTO product " +
+				"(SKU, " +
+				"description, " +
+				"category, " +
+				"available, " +
+				"price) " +
+				"VALUES ('" +
+				SKU + "','" +
+				description + "','" +
+				category + "',"+
+				available + "," +
+				price + ");" ;
 
 		try {
 			conn = getConnection();

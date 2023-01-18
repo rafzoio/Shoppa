@@ -5,42 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa317064-0d4a-4971-9f78-1f1b05fbd691" name="Changes" comment="Refactoring">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/user/AddUserFormHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/user/AddUserHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/user/DeleteUserHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/user/DisplayUsersHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/user/UpdateUserFormHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/user/UpdateUserHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game-buy.db" beforeDir="false" afterPath="$PROJECT_DIR$/game-buy.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/ConsoleApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/ConsoleApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/ProductDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/MenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/AccessDeniedHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/AccessDeniedHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/LogOutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/LogOutHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/LoginFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/LoginFormHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/LoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/RegisterFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/RegisterFormHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/RegisterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/auth/RegisterHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/basket/ClearBasketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/basket/ClearBasketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/basket/DisplayBasketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/basket/DisplayBasketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/AddCustomerFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/AddCustomerFormHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/AddCustomerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/AddCustomerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/UpdateCustomerFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/UpdateCustomerFormHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/UpdateCustomerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/customer/UpdateCustomerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AddProductFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AddProductFormHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AddProductHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AddProductHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AddProductToBasketFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AddProductToBasketFormHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AddProductToBasketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AddProductToBasketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AdjustQuantityOfProductInBasketFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AdjustQuantityOfProductInBasketFormHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AdjustQuantityOfProductInBasketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/AdjustQuantityOfProductInBasketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/DisplayProductsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/DisplayProductsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/UpdateProductFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/UpdateProductFormHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/UpdateProductHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/handler/product/UpdateProductHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamebuy/store/service/LoginService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +186,7 @@
       <workItem from="1673914267400" duration="900000" />
       <workItem from="1673967021931" duration="7602000" />
       <workItem from="1673983171956" duration="1738000" />
-      <workItem from="1674047546086" duration="10458000" />
+      <workItem from="1674047546086" duration="16762000" />
     </task>
     <task id="LOCAL-00001" summary="Fix datasource url">
       <created>1673019053261</created>
@@ -253,7 +223,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673971260916</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added user DAO and front-end">
+      <created>1674061575449</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674061575449</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Refactoring">
+      <created>1674061717257</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674061717257</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +260,7 @@
     <MESSAGE value="Add junit dependencies" />
     <MESSAGE value="Refactor handler file names and add register and login handler files (not functioning)" />
     <MESSAGE value="Added login functionality. Customers and admins can only access certain pages (see permissions.txt)." />
+    <MESSAGE value="Added user DAO and front-end" />
     <MESSAGE value="Refactoring" />
     <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
   </component>
@@ -384,7 +369,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/gamebuy/store/dao/UserDAO.java</url>
-          <line>130</line>
+          <line>138</line>
           <option name="timeStamp" value="184" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

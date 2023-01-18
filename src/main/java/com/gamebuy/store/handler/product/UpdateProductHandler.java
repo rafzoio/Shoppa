@@ -23,10 +23,8 @@ public class UpdateProductHandler implements HttpHandler {
 
 		HashMap<String, String> params = requestInputStreamToMap(exchange.getRequestBody());
 
-		System.out.println(params);
-		System.out.println(params);
-
 		ProductDAO productDAO = new ProductDAO();
+
 		int id = Integer.parseInt(params.get("id"));
 		String sku = params.get("sku");
 		String description = params.get("description");

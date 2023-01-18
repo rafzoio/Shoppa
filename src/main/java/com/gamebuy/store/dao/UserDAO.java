@@ -114,7 +114,15 @@ public class UserDAO extends DAO {
 		String password = user.getPassword();
 		String role = user.getRole().name();
 
-		String query = "INSERT INTO user (username, password, role) VALUES ('" + username + "','" + password + "','" + role + "');";
+		String query = "" +
+				"INSERT INTO user (" +
+				"username, " +
+				"password, " +
+				"role" +
+				") VALUES ('" +
+				username + "','" +
+				password + "','" +
+				role + "');";
 		try {
 			conn = getConnection();
 			statement = conn.createStatement();

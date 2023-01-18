@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static com.gamebuy.store.utils.RequestStringToMap.requestInputStreamToMap;
 
-public class AddProductHandler implements HttpHandler{
+public class AddProductHandler implements HttpHandler {
 
 	public void handle(HttpExchange exchange) throws IOException {
 
