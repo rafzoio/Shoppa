@@ -3,6 +3,7 @@ package com.gamebuy.store.handler.auth;
 import com.gamebuy.store.dao.UserDAO;
 import com.gamebuy.store.domain.Role;
 import com.gamebuy.store.domain.User;
+import com.gamebuy.store.service.LoginService;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -17,6 +18,8 @@ public class RegisterHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
+        System.out.println("RegisterHandler called");
+
         exchange.sendResponseHeaders(200, 0);
 
         BufferedWriter out = new BufferedWriter(
@@ -25,14 +28,15 @@ public class RegisterHandler implements HttpHandler {
         HashMap<String, String> params = requestInputStreamToMap(exchange.getRequestBody());
 
         UserDAO userDAO = new UserDAO();
+        LoginService loginService = LoginService.getInstance();
 
         String username = params.get("username");
-        String password = params.get("password");
+        String encryptedPassword = loginService.getMd5Hash(params.get("password"));
         Role role = Role.CUSTOMER;
 
-        User newUser = new User(username, password, role);
+        User newUser = new User(username, encryptedPassword, role);
 
-        int userID = userDAO.addUser(newUser);
+        userDAO.addUser(newUser);
 
         out.write(
                 "<html>" +

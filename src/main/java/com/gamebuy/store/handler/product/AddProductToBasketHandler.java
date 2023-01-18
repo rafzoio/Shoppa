@@ -16,7 +16,7 @@ public class AddProductToBasketHandler implements HttpHandler{
 
 	public void handle(HttpExchange exchange) throws IOException {
 
-		System.out.println("ProcessAddProductToBasketHandler called");
+		System.out.println("AddProductToBasketHandler called");
 		exchange.sendResponseHeaders(200,0);
 
 		OrderItemService orderItemService = OrderItemService.getInstance();

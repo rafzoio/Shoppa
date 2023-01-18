@@ -144,7 +144,7 @@ public class ProductDAO extends DAO {
 		if (category.equals("")) {
 			category = existingProduct.getCategory();
 		}
-//TODO fix this
+
 		if (available == 0) {
 			available = existingProduct.getAvailable();
 		}

@@ -16,7 +16,7 @@ public class AdjustQuantityOfProductInBasketHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
-        System.out.println("ProcessAdjustQuantityOfProductInBasketHandler called");
+        System.out.println("AdjustQuantityOfProductInBasketHandler called");
         exchange.sendResponseHeaders(200, 0);
 
         BufferedWriter out = new BufferedWriter(

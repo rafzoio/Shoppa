@@ -19,6 +19,8 @@ public class DisplayBasketHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
+        System.out.println("DisplayBasketHandler called");
+
         LoginService loginService = LoginService.getInstance();
         BasketService basketService = BasketService.getInstance();
         OrderItemService orderItemService = OrderItemService.getInstance();

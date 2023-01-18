@@ -28,17 +28,26 @@ public class MenuHandler implements HttpHandler {
                         "</head>" +
                         "<body>" +
                         "<div class=\"container\">" +
-                        "<h1>GameBuy</h1>");
+                        "<h1>GameBuy</h1>" +
+                        "<div>");
 
         if (loginService.checkRoleOfCurrentUser(Role.ADMIN)) {
             out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/products\">Products</a></button>");
             out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/customers\">Customers</a></button>");
-        } else {
+            out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/users\">Users</a></button>");
+            out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/logout\">Log Out</a></button>");
+        } else if (loginService.checkRoleOfCurrentUser(Role.CUSTOMER)) {
             out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/products\">Products</a></button>");
             out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/basket\">Basket</a></button>");
+            out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/logout\">Log Out</a></button>");
+        } else {
+            out.write("<p>User not logged in.");
+            out.write("<br>");
+            out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/loginForm\">Login</a></button>");
+            out.write("<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/registerForm\">Register</a></button>");
         }
         out.write(
-                "<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/logout\">Log Out</a></button>" +
+                "</div>" +
                         "</div>" +
                         "</body>" +
                         "</html>"

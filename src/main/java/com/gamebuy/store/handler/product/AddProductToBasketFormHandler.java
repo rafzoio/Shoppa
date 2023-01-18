@@ -18,7 +18,7 @@ public class AddProductToBasketFormHandler implements HttpHandler{
 
 	public void handle(HttpExchange exchange) throws IOException {
 
-		System.out.println("AddProductToBasketHandler called");
+		System.out.println("AddProductToBasketFormHandler called");
 		exchange.sendResponseHeaders(200,0);
 
 		HashMap<String, String> params = requestStringToMap(exchange.getRequestURI().getQuery());

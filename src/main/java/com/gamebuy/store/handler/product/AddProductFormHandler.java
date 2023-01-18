@@ -11,7 +11,7 @@ public class AddProductFormHandler implements HttpHandler{
 
 	public void handle(HttpExchange exchange) throws IOException {
 
-		System.out.println("AddProductHandler called");
+		System.out.println("AddProductFormHandler called");
 		exchange.sendResponseHeaders(200,0);
 
 		BufferedWriter out = new BufferedWriter(

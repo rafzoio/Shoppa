@@ -11,6 +11,8 @@ public class RegisterFormHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
+        System.out.println("RegisterFormHandler called");
+
         exchange.sendResponseHeaders(200, 0);
 
         BufferedWriter out = new BufferedWriter(
@@ -33,7 +35,7 @@ public class RegisterFormHandler implements HttpHandler {
                         "<input type=\"text\" class=\"form-control\" name=\"username\" id=\"username\" required> " +
 
                         "<label for=\"password\">Password</label> " +
-                        "<input type=\"text\" class=\"form-control\" name=\"password\" id=\"password\" required> " +
+                        "<input type=\"password\" class=\"form-control\" name=\"password\" id=\"password\" required> " +
 
                         "</div>" +
                         "<button type=\"submit\" class=\"btn btn-primary\">Sign up</button> " +

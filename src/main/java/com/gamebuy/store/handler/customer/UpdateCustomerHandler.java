@@ -19,7 +19,7 @@ public class UpdateCustomerHandler implements HttpHandler {
 	@Override
 	public void handle(HttpExchange exchange) throws IOException {
 
-		System.out.println("ProcessUpdateCustomerHandler called");
+		System.out.println("UpdateCustomerHandler called");
 		exchange.sendResponseHeaders(200,0);
 
 		BufferedWriter out = new BufferedWriter(

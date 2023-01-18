@@ -10,6 +10,8 @@ public class LogOutHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
+        System.out.println("LogOutHandler called");
+
         LoginService loginService = LoginService.getInstance();
 
         loginService.logOutUser();

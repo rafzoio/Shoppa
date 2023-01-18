@@ -17,7 +17,7 @@ public class UpdateProductFormHandler implements HttpHandler {
 	@Override
 	public void handle(HttpExchange exchange) throws IOException {
 
-		System.out.println("UpdateProductHandler called");
+		System.out.println("UpdateProductFormHandler called");
 		exchange.sendResponseHeaders(200,0);
 
 		BufferedWriter out = new BufferedWriter(
@@ -65,7 +65,7 @@ public class UpdateProductFormHandler implements HttpHandler {
 						"<input value=\"" + product.getPrice() + "\" type=\"text\" class=\"form-control\" name=\"price\" id=\"price\" required> " +
 
 						"</div>" +
-						"<button type=\"submit\" class=\"btn btn-primary\">Edit</button> " +
+						"<button type=\"submit\" class=\"btn btn-primary\">Update</button> " +
 						"</form>" +
 						"<a href=\"/products\">Cancel</a>"+
 						"</div>" +

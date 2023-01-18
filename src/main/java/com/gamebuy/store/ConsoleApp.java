@@ -8,13 +8,12 @@ import com.gamebuy.store.domain.Customer;
 import com.gamebuy.store.domain.Product;
 import com.gamebuy.store.utils.DisplayTable;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ConsoleApp {
 
-    public static void consoleApp() throws SQLException {
+    public static void consoleApp() {
 
         ProductDAO productDAO = new ProductDAO();
         CustomerDAO customerDAO = new CustomerDAO();
@@ -108,10 +107,21 @@ public class ConsoleApp {
                     newCategory = in.nextLine();
 
                     System.out.println("Please enter the available quantity of this product:");
-                    newAvailable = Integer.parseInt(in.nextLine());
+                    String strAvailable = in.nextLine();
+
+                    if (strAvailable.equals("")) {
+                        newAvailable = Integer.parseInt(strAvailable);
+                    } else {
+                        newAvailable = 0;
+                    }
 
                     System.out.println("Please enter a price:");
-                    newPrice = Integer.parseInt(in.nextLine());
+                    String strPrice = in.nextLine();
+                    if (!strAvailable.equals("")) {
+                        newPrice = Integer.parseInt(strPrice);
+                    } else {
+                        newPrice = 0;
+                    }
 
                     productDAO.updateProduct(id, newSKU, newDescription, newCategory, newAvailable, newPrice);
 

@@ -7,6 +7,7 @@ import com.gamebuy.store.handler.basket.ClearBasketHandler;
 import com.gamebuy.store.handler.basket.DisplayBasketHandler;
 import com.gamebuy.store.handler.customer.*;
 import com.gamebuy.store.handler.product.*;
+import com.gamebuy.store.handler.user.*;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
@@ -28,6 +29,13 @@ public class Main {
         server.createContext("/auth/loginForm", new LoginFormHandler());
         server.createContext("/auth/login", new LoginHandler());
         server.createContext("/auth/logout", new LogOutHandler());
+
+        server.createContext("/users", new DisplayUsersHandler());
+        server.createContext("/users/addForm", new AddUserFormHandler());
+        server.createContext("/users/add", new AddUserHandler());
+        server.createContext("/users/delete", new DeleteUserHandler());
+        server.createContext("/users/updateForm", new UpdateUserFormHandler());
+        server.createContext("/users/update", new UpdateUserHandler());
 
         server.createContext("/products", new DisplayProductsHandler());
         server.createContext("/products/delete", new DeleteProductHandler());
@@ -56,6 +64,6 @@ public class Main {
         server.start();
         System.out.println("The server is listening on port " + PORT);
 
-        //ConsoleApp.consoleApp();
+        ConsoleApp.consoleApp();
     }
 }

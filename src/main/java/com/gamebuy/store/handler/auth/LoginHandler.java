@@ -15,6 +15,8 @@ public class LoginHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
+        System.out.println("LoginHandler called");
+
         exchange.sendResponseHeaders(200, 0);
 
         BufferedWriter out = new BufferedWriter(
@@ -25,9 +27,9 @@ public class LoginHandler implements HttpHandler {
         LoginService loginService = LoginService.getInstance();
 
         String username = params.get("username");
-        String password = params.get("password");
+        String encryptedPassword = loginService.getMd5Hash(params.get("password"));
 
-        if (loginService.authenticate(username, password)) {
+        if (loginService.authenticate(username, encryptedPassword)) {
             out.write(
                     "<html>" +
                             "<meta charset=\"utf-8\">"+
@@ -36,7 +38,7 @@ public class LoginHandler implements HttpHandler {
                             "</head>" +
                             "<body>" +
                             "<div class=\"container\">" +
-                            "<h1>User Registered</h1>"+
+                            "<h1>User Logged In</h1>"+
                             "<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/menu\">Continue to menu</a></button> " +
                             "<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/logout\">Log out</a></button> " +
                             "</div>" +
@@ -46,14 +48,13 @@ public class LoginHandler implements HttpHandler {
             out.write(
                     "<html>" +
                             "<meta charset=\"utf-8\">"+
-                            "<head> <title>Login Failed</title> "+
+                            "<head> <title>Incorrect Password</title> "+
                             "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">" +
                             "</head>" +
                             "<body>" +
                             "<div class=\"container\">" +
-                            "<h1>User Registered</h1>"+
-                            "<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/loginForm\">Login</a></button> " +
-                            "<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/\">Return to Menu</a></button> " +
+                            "<h1>Incorrect Password</h1>"+
+                            "<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/\">Return to login page</a></button> " +
                             "</div>" +
                             "</body>" +
                             "</html>");

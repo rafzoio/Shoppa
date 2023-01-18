@@ -15,7 +15,7 @@ public class UpdateProductHandler implements HttpHandler {
 	@Override
 	public void handle(HttpExchange exchange) throws IOException {
 
-		System.out.println("ProcessUpdateProductHandler called");
+		System.out.println("UpdateProductHandler called");
 		exchange.sendResponseHeaders(200,0);
 
 		BufferedWriter out = new BufferedWriter(

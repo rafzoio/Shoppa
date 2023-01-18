@@ -11,6 +11,8 @@ public class AccessDeniedHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
+        System.out.println("AccessDeniedHandler called");
+
         exchange.sendResponseHeaders(200,0);
 
         BufferedWriter out = new BufferedWriter(
@@ -26,6 +28,7 @@ public class AccessDeniedHandler implements HttpHandler {
                         "<div class=\"container\">" +
                         "<h1>Access Denied</h1>" +
                         "<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/menu\">Return to Menu</a></button> " +
+                        "<button type=\"button\" class=\"btn bg-transparent btn-outline-primary\"><a href=\"/auth/logout\">Log Out</a></button>" +
                         "</body>" +
                         "</html>"
         );
