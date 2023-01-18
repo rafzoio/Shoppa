@@ -28,7 +28,7 @@ public class UserDAO extends DAO {
 
 		return user;
 	}
-	public User getUser(int id) {
+	public User getUserById(int id) {
 			
 		Connection conn = null;
 		Statement statement;
@@ -105,7 +105,7 @@ public class UserDAO extends DAO {
 		return users;
 	}
 	
-	public int addUser(User user) {
+	public void addUser(User user) {
 
 		Connection conn = null;
 		Statement statement;
@@ -115,22 +115,15 @@ public class UserDAO extends DAO {
 		String role = user.getRole().name();
 
 		String query = "INSERT INTO user (username, password, role) VALUES ('" + username + "','" + password + "','" + role + "');";
-		String returnMaxId = "SELECT MAX(id) from user;";
-		int maxId = 0;
 		try {
 			conn = getConnection();
 			statement = conn.createStatement();
 			statement.executeUpdate(query);
-			ResultSet rs = statement.executeQuery(returnMaxId);
-			if (rs.next()) {
-				maxId = rs.getInt("max(id)");
-			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
 			closeConnection(conn);
 		}
-		return maxId;
 	}
 	
 	public void updateUser(int id, String username, String password, Role role) {
@@ -141,21 +134,21 @@ public class UserDAO extends DAO {
 		String query;
 		
 		if (username.equals("")) {
-			username = getUser(id).getUsername();
+			username = getUserById(id).getUsername();
 		}
 		
 		if (password.equals("")) {
-			password = getUser(id).getPassword();
+			password = getUserById(id).getPassword();
 		}
 		
 		if (role.name().equals("")) {
-			role = getUser(id).getRole();
+			role = getUserById(id).getRole();
 		}
 		
 		query = "UPDATE user "
 				+ "SET username = '" + username + "', "
 				+ "password = '" + password + "', "
-				+ "role = " + role.name() + " "
+				+ "role = '" + role.name() + "' "
 				+ "WHERE id = " + id + "";
 		
 		try {
