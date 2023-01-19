@@ -1,0 +1,11 @@
+com.gamebuy.store
+com.gamebuy.store.dao
+com.gamebuy.store.domain
+com.gamebuy.store.handler
+com.gamebuy.store.handler.auth
+com.gamebuy.store.handler.basket
+com.gamebuy.store.handler.customer
+com.gamebuy.store.handler.product
+com.gamebuy.store.handler.user
+com.gamebuy.store.service
+com.gamebuy.store.utils
