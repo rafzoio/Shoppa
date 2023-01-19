@@ -8,6 +8,13 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 
 public class RegisterFormHandler implements HttpHandler {
+    /**
+     * Handles user registration form. Form data is posted to RegisterHandler.
+     *
+     * @param exchange the exchange containing the request from the
+     *                 client and used to send the response
+     * @throws IOException
+     */
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 

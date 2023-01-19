@@ -10,6 +10,14 @@ import java.io.OutputStreamWriter;
 
 public class AddUserFormHandler implements HttpHandler {
 
+    /**
+     * Handles form to add a new user. Posts form data to AddUserHandler.
+     *
+     * @param exchange the exchange containing the request from the
+     *                 client and used to send the response
+     * @throws IOException
+     */
+    @Override
     public void handle(HttpExchange exchange) throws IOException {
 
         System.out.println("AddUserFormHandler called");

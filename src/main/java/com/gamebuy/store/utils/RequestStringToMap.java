@@ -7,44 +7,57 @@ import java.util.HashMap;
 
 public class RequestStringToMap {
 
-	public static HashMap<String, String> requestInputStreamToMap(InputStream is) throws IOException {
+    /**
+     * Converts inputStream from HTTP request into HashMap of parameters.
+     *
+     * @param is InputStream
+     * @return HashMap of parameters
+     * @throws IOException
+     */
+    public static HashMap<String, String> requestInputStreamToMap(InputStream is) throws IOException {
 
-		BufferedReader httpInput = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+        BufferedReader httpInput = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
 
-		StringBuilder in = new StringBuilder();
+        StringBuilder in = new StringBuilder();
 
-		String input;
+        String input;
 
-		while ((input = httpInput.readLine()) != null) {
-			in.append(input).append(" ");
-		}
+        while ((input = httpInput.readLine()) != null) {
+            in.append(input).append(" ");
+        }
 
-		httpInput.close();
+        httpInput.close();
 
-		String trimmed = in.toString().trim();
-		if (trimmed.equals("")) {
-			return new HashMap<>();
-		}
-		return requestStringToMap(trimmed);
-	}
+        String trimmed = in.toString().trim();
+        if (trimmed.equals("")) {
+            return new HashMap<>();
+        }
+        return requestStringToMap(trimmed);
+    }
 
-	public static HashMap<String, String> requestStringToMap(String request) {
-		
-		HashMap<String, String> hashMap = new HashMap<>();
-		
-		String[] pairs = request.split("&");
+    /**
+     * Converts string of url request into HashMap.
+     *
+     * @param request url request string
+     * @return HashMap of parameters.
+     */
+    public static HashMap<String, String> requestStringToMap(String request) {
 
-		for (String pair : pairs) {
+        HashMap<String, String> hashMap = new HashMap<>();
 
-			String key = pair.split("=")[0];
-			key = URLDecoder.decode(key, StandardCharsets.UTF_8);
+        String[] pairs = request.split("&");
 
-			String value = pair.split("=")[1];
-			value = URLDecoder.decode(value, StandardCharsets.UTF_8);
+        for (String pair : pairs) {
 
-			hashMap.put(key, value);
+            String key = pair.split("=")[0];
+            key = URLDecoder.decode(key, StandardCharsets.UTF_8);
 
-		}
-		return hashMap;
-	}
+            String value = pair.split("=")[1];
+            value = URLDecoder.decode(value, StandardCharsets.UTF_8);
+
+            hashMap.put(key, value);
+
+        }
+        return hashMap;
+    }
 }

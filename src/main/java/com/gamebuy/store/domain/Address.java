@@ -2,7 +2,6 @@ package com.gamebuy.store.domain;
 
 public class Address {
 
-
 	private int customerId;
 	private String house;
 	private String addressLine1;

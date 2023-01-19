@@ -12,52 +12,60 @@ import java.util.HashMap;
 
 import static com.gamebuy.store.utils.RequestStringToMap.requestInputStreamToMap;
 
-public class AddProductToBasketHandler implements HttpHandler{
+public class AddProductToBasketHandler implements HttpHandler {
 
-	public void handle(HttpExchange exchange) throws IOException {
+    /**
+     * Handles the adding of a product to the basket.
+     *
+     * @param exchange the exchange containing the request from the
+     *                 client and used to send the response
+     * @throws IOException
+     */
+    @Override
+    public void handle(HttpExchange exchange) throws IOException {
 
-		System.out.println("AddProductToBasketHandler called");
-		exchange.sendResponseHeaders(200,0);
+        System.out.println("AddProductToBasketHandler called");
+        exchange.sendResponseHeaders(200, 0);
 
-		OrderItemService orderItemService = OrderItemService.getInstance();
+        OrderItemService orderItemService = OrderItemService.getInstance();
 
-		HashMap<String, String> params = requestInputStreamToMap(exchange.getRequestBody());
-		int productId = Integer.parseInt(params.get("id"));
-		int basketId = 1;
-		int quantityToAdd = Integer.parseInt(params.get("quantity"));
+        HashMap<String, String> params = requestInputStreamToMap(exchange.getRequestBody());
+        int productId = Integer.parseInt(params.get("id"));
+        int basketId = 1;
+        int quantityToAdd = Integer.parseInt(params.get("quantity"));
 
-		boolean orderItemExists = orderItemService.isOrderItemInBasket(basketId, productId);
+        boolean orderItemExists = orderItemService.isOrderItemInBasket(basketId, productId);
 
-		OrderItem orderItem = new OrderItem(basketId, productId, 0);
+        OrderItem orderItem = new OrderItem(basketId, productId, 0);
 
-		if (orderItemExists) {
-			orderItemService.addQuantityToOrderItem(orderItem, quantityToAdd);
-		} else {
-			orderItem.setQuantity(quantityToAdd);
-			orderItemService.addOrderItemToBasket(orderItem);
-		}
+        if (orderItemExists) {
+            orderItemService.addQuantityToOrderItem(orderItem, quantityToAdd);
+        } else {
+            orderItem.setQuantity(quantityToAdd);
+            orderItemService.addOrderItemToBasket(orderItem);
+        }
 
-		BufferedWriter out = new BufferedWriter(
-				new OutputStreamWriter(exchange.getResponseBody() ));
+        BufferedWriter out = new BufferedWriter(
+                new OutputStreamWriter(exchange.getResponseBody()));
 
-		out.write(
-				"<html>" +
-						"<meta charset=\"utf-8\">"+
-						"<head> <title>Added to Basket</title> "+
-						"<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">" +
-						"</head>" +
-						"<body>" +
-						"<div class=\"container\">"+
-						"<h1>Successfully added to basket</h1>"+
-						"<a href=\"/products\">Back to products</a>" +
-						"</br>"+
-						"<a href=\"/basket\">Continue to basket</a>"+
-						"</div>" +
-						"</body>" +
-						"</html>");
+        out.write(
+                "<html>" +
+                        "<meta charset=\"utf-8\">" +
+                        "<head> <title>Added to Basket</title> " +
+                        "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">" +
+                        "</head>" +
+                        "<body>" +
+                        "<div class=\"container\">" +
+                        "<h1>Successfully added to basket</h1>" +
+                        "<a href=\"/products\">Back to products</a>" +
+                        "</br>" +
+                        "<a href=\"/basket\">Continue to basket</a>" +
+                        "</div>" +
+                        "</body>" +
+                        "</html>");
 
-		out.close();
+        out.close();
 
-	}
+    }
 
 }

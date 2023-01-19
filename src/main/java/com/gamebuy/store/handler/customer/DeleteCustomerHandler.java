@@ -14,6 +14,15 @@ import java.util.Map;
 import static com.gamebuy.store.utils.RequestStringToMap.requestStringToMap;
 
 public class DeleteCustomerHandler implements HttpHandler {
+
+	/**
+	 * Handles the deletion of a customer and their corresponding address from the database.
+	 *
+	 * @param exchange the exchange containing the request from the
+	 *                 client and used to send the response
+	 * @throws IOException
+	 */
+	@Override
 	public void handle(HttpExchange exchange) throws IOException {
 
 		System.out.println("DeleteCustomerHandler called");

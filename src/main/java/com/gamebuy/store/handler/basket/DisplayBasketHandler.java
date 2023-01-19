@@ -16,6 +16,13 @@ import java.util.ArrayList;
 
 public class DisplayBasketHandler implements HttpHandler {
 
+    /**
+     * Handles the displaying of all orderItems in a basket.
+     *
+     * @param exchange the exchange containing the request from the
+     *                 client and used to send the response
+     * @throws IOException
+     */
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
@@ -46,7 +53,7 @@ public class DisplayBasketHandler implements HttpHandler {
                         "</head>" +
                         "<body>" +
                         "<div class=\"container\">" +
-                        "<h1>Basket (" + basketService.numberItemsInBasket(1) + ")</h1>" +
+                        "<h1>Basket (" + basketService.numberOfOrderItemsInBasket(1) + ")</h1>" +
                         "<table class=\"table\">" +
                         "<thead>" +
                         "  <tr>" +

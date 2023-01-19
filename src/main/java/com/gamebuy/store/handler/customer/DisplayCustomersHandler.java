@@ -16,6 +16,13 @@ import java.util.ArrayList;
 
 public class DisplayCustomersHandler implements HttpHandler {
 
+	/**
+	 * Handles the display of all existing customers.
+	 *
+	 * @param exchange the exchange containing the request from the
+	 *                 client and used to send the response
+	 * @throws IOException
+	 */
 	@Override
 	public void handle(HttpExchange exchange) throws IOException {
 

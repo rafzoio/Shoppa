@@ -15,13 +15,21 @@ import static com.gamebuy.store.utils.RequestStringToMap.requestStringToMap;
 
 public class AdjustQuantityOfProductInBasketFormHandler implements HttpHandler {
 
+    /**
+     * Handles form adjusting a product quantity in the basket. Posts form data to AdjustQuantityOfProductInBasketHandler
+     *
+     * @param exchange the exchange containing the request from the
+     *                 client and used to send the response
+     * @throws IOException
+     */
+    @Override
     public void handle(HttpExchange exchange) throws IOException {
 
         System.out.println("AdjustQuantityOfProductInBasketFormHandler called");
-        exchange.sendResponseHeaders(200,0);
+        exchange.sendResponseHeaders(200, 0);
 
         BufferedWriter out = new BufferedWriter(
-                new OutputStreamWriter(exchange.getResponseBody() ));
+                new OutputStreamWriter(exchange.getResponseBody()));
 
         OrderItemService orderItemService = OrderItemService.getInstance();
 
@@ -36,15 +44,15 @@ public class AdjustQuantityOfProductInBasketFormHandler implements HttpHandler {
 
         out.write(
                 "<html>" +
-						"<meta charset=\"utf-8\">"+
-                        "<head> <title>Adjust quantity</title> "+
+                        "<meta charset=\"utf-8\">" +
+                        "<head> <title>Adjust quantity</title> " +
                         "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">" +
                         "</head>" +
                         "<body>" +
-                        "<div class=\"container\">"+
-                        "<h1>Adjust quantity</h1>"+
+                        "<div class=\"container\">" +
+                        "<h1>Adjust quantity</h1>" +
                         "<form method=\"post\" action=\"/products/adjustQuantityInBasket\">" +
-                        "<div class=\"form-group\"> "+
+                        "<div class=\"form-group\"> " +
 
                         "<label for=\"basketId\">Basket ID</label> " +
                         "<input value = \"" + basketId + "\" type=\"text\" class=\"form-control\" readonly=\"readonly\" name=\"basketId\" id=\"basketId\"> " +
@@ -60,12 +68,12 @@ public class AdjustQuantityOfProductInBasketFormHandler implements HttpHandler {
                         "<input value = \"" + product.getDescription() + "\" type=\"text\" class=\"form-control\" name=\"description\" id=\"description\" disabled> " +
 
                         "<label for=\"quantity\">Quantity</label> " +
-                        "<input value = \"" + orderItem.getQuantity() + "\" type=\"number\" class=\"form-control\" name=\"quantity\" id=\"quantity\" max=\"" + product.getAvailable() +"\" required> " +
+                        "<input value = \"" + orderItem.getQuantity() + "\" type=\"number\" class=\"form-control\" name=\"quantity\" id=\"quantity\" max=\"" + product.getAvailable() + "\" required> " +
 
                         "</div>" +
                         "<button type=\"submit\" class=\"btn btn-primary\">Submit</button> " +
                         "</form>" +
-                        "<a href=\"/basket\">Cancel</a>"+
+                        "<a href=\"/basket\">Cancel</a>" +
                         "</div>" +
                         "</body>" +
                         "</html>");

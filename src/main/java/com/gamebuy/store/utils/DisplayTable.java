@@ -8,55 +8,66 @@ import com.gamebuy.store.service.AddressService;
 import java.util.ArrayList;
 
 public class DisplayTable {
-	public static void displayProductTable(ArrayList<Product> products) {
-		String leftAlignFormat = "| %-4d | %-8s | %-16s | %-10s | %-9s | %-5s |%n";
 
-		System.out.format("+------+----------+------------------+------------+-----------+-------+%n");
-		System.out.format("| ID   | SKU      | Description      | Category   | Available | Price |%n");
-		System.out.format("+------+----------+------------------+------------+-----------+-------+%n");
-		for (Product product : products) {
-		    System.out.format(leftAlignFormat,
-					product.getId(),
-					product.getSKU(),
-					product.getDescription(),
-					product.getCategory(),
-					product.getAvailable(),
-					product.getPrice()
-			);
-		}
-		System.out.format("+------+----------+------------------+------------+-----------+-------+%n");
-		System.out.println();
-	}
+    /**
+     * Displays a formatted table to neatly print products to the console.
+     *
+     * @param products
+     */
+    public static void displayProductTable(ArrayList<Product> products) {
+        String leftAlignFormat = "| %-4d | %-8s | %-16s | %-10s | %-9s | %-5s |%n";
 
-	public static void displayCustomerTable(ArrayList<Customer> customers) {
+        System.out.format("+------+----------+------------------+------------+-----------+-------+%n");
+        System.out.format("| ID   | SKU      | Description      | Category   | Available | Price |%n");
+        System.out.format("+------+----------+------------------+------------+-----------+-------+%n");
+        for (Product product : products) {
+            System.out.format(leftAlignFormat,
+                    product.getId(),
+                    product.getSKU(),
+                    product.getDescription(),
+                    product.getCategory(),
+                    product.getAvailable(),
+                    product.getPrice()
+            );
+        }
+        System.out.format("+------+----------+------------------+------------+-----------+-------+%n");
+        System.out.println();
+    }
 
-		AddressService addressService = AddressService.getInstance();
+    /**
+     * Displays a formatted table to neatly print customers to the console.
+     *
+     * @param customers
+     */
+    public static void displayCustomerTable(ArrayList<Customer> customers) {
 
-		Address address;
+        AddressService addressService = AddressService.getInstance();
 
-		String leftAlignFormat = "| %-4d | %-11s | %-11s | %-13s | %-59s |%n";
+        Address address;
 
-		System.out.format("+------+-------------+-------------+---------------+-------------------------------------------------------------+%n");
-		System.out.format("| ID   | First name  | Second name | Telephone no. |  Address                                                    |%n");
-		System.out.format("+------+-------------+-------------+---------------+-------------------------------------------------------------+%n");
+        String leftAlignFormat = "| %-4d | %-11s | %-11s | %-13s | %-59s |%n";
 
-		for (Customer customer : customers) {
+        System.out.format("+------+-------------+-------------+---------------+-------------------------------------------------------------+%n");
+        System.out.format("| ID   | First name  | Second name | Telephone no. |  Address                                                    |%n");
+        System.out.format("+------+-------------+-------------+---------------+-------------------------------------------------------------+%n");
 
-			address = addressService.getCustomerAddress(customer.getId());
+        for (Customer customer : customers) {
 
-			System.out.format(leftAlignFormat,
-					customer.getId(),
-					customer.getFirstName(),
-					customer.getSecondName(),
-					customer.getTelephoneNumber(),
-					(address.getHouse() + ", " +
-					address.getAddressLine1() + ", " +
-					address.getAddressLine2() + ", " +
-					address.getCountry() + ", " +
-					address.getPostcode())
-			);
-		}
-		System.out.format("+------+-------------+-------------+---------------+-------------------------------------------------------------+%n");
-		System.out.println();
-	}
+            address = addressService.getCustomerAddress(customer.getId());
+
+            System.out.format(leftAlignFormat,
+                    customer.getId(),
+                    customer.getFirstName(),
+                    customer.getSecondName(),
+                    customer.getTelephoneNumber(),
+                    (address.getHouse() + ", " +
+                            address.getAddressLine1() + ", " +
+                            address.getAddressLine2() + ", " +
+                            address.getCountry() + ", " +
+                            address.getPostcode())
+            );
+        }
+        System.out.format("+------+-------------+-------------+---------------+-------------------------------------------------------------+%n");
+        System.out.println();
+    }
 }

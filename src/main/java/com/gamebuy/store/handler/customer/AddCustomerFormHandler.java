@@ -9,6 +9,14 @@ import java.io.OutputStreamWriter;
 
 public class AddCustomerFormHandler implements HttpHandler{
 
+	/**
+	 * Handles form to add a new customer. Form data is posted to AddCustomerHandler.
+	 *
+	 * @param exchange the exchange containing the request from the
+	 *                 client and used to send the response
+	 * @throws IOException
+	 */
+	@Override
 	public void handle(HttpExchange exchange) throws IOException {
 
 		System.out.println("AddCustomerFormHandler called");

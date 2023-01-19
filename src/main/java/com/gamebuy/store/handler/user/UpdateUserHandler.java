@@ -15,6 +15,13 @@ import static com.gamebuy.store.utils.RequestStringToMap.requestInputStreamToMap
 
 public class UpdateUserHandler implements HttpHandler {
 
+	/**
+	 * Handles updating of an existing user.
+	 *
+	 * @param exchange the exchange containing the request from the
+	 *                 client and used to send the response
+	 * @throws IOException
+	 */
 	@Override
 	public void handle(HttpExchange exchange) throws IOException {
 

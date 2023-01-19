@@ -16,12 +16,13 @@ import java.net.InetSocketAddress;
 public class Main {
 
     static final private int PORT = 8090;
+
     public static void main(String[] args) throws IOException {
 
         HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
 
         server.createContext("/menu", new MenuHandler());
-        server.createContext("/", new RootHandler() );
+        server.createContext("/", new RootHandler());
         server.createContext("/accessDenied", new AccessDeniedHandler());
 
         server.createContext("/auth/registerForm", new RegisterFormHandler());
@@ -64,6 +65,7 @@ public class Main {
         server.start();
         System.out.println("The server is listening on port " + PORT);
 
-        ConsoleApp.consoleApp();
+        //Uncomment below to run console app.
+        //ConsoleApp.consoleApp();
     }
 }

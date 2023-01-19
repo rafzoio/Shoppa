@@ -8,6 +8,14 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 
 public class LoginFormHandler implements HttpHandler {
+
+    /**
+     * Handles the login form. Form submission posts to LoginHandler.
+     *
+     * @param exchange the exchange containing the request from the
+     *                 client and used to send the response
+     * @throws IOException
+     */
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 

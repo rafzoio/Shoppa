@@ -44,18 +44,37 @@ public class LoginService {
         return isPasswordCorrect;
     }
 
+    /**
+     * Sets the current logged in user.
+     *
+     * @param id user being logged in.
+     */
     public void setLoggedInUserId(int id) {
         loggedInUserId = id;
     }
 
+    /**
+     * Returns whether a user is logged in.
+     *
+     * @return boolean
+     */
     public boolean isUserLoggedIn() {
         return !(loggedInUserId == -1);
     }
 
+    /**
+     * Logs out the current user.
+     */
     public void logOutUser() {
         loggedInUserId = -1;
     }
 
+    /**
+     * Checks whether logged in user is of specified role (admin or customer).
+     *
+     * @param role
+     * @return is specified role equal to current logged in user's role.
+     */
     public boolean checkRoleOfCurrentUser(Role role) {
         if (loggedInUserId == -1) {
             return false;
@@ -66,22 +85,27 @@ public class LoginService {
                 .equals(role);
     }
 
-    public String getMd5Hash(String input) {
+    /**
+     * Encrypts password to be stored in database using MD5 hash function.
+     *
+     * @param in string to encrypt
+     * @return encrypted hash string
+     */
+    public String getMd5Hash(String in) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] messageDigest = md.digest(input.getBytes());
+            byte[] messageDigest = md.digest(in.getBytes());
 
-            BigInteger no = new BigInteger(1, messageDigest);
+            BigInteger bigInteger = new BigInteger(1, messageDigest);
 
-            String hashtext = no.toString(16);
+            String hash = bigInteger.toString(16);
 
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
+            while (hash.length() < 32) {
+                hash = "0" + hash;
             }
-            return hashtext;
-        }
-        catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
+            return hash;
+        } catch (NoSuchAlgorithmException ex) {
+            throw new RuntimeException(ex);
         }
     }
 }

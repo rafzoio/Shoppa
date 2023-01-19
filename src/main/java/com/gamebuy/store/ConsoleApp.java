@@ -13,6 +13,10 @@ import java.util.Scanner;
 
 public class ConsoleApp {
 
+    /**
+     * Console App.
+     * Provides CRUD access to customers and products.
+     */
     public static void consoleApp() {
 
         ProductDAO productDAO = new ProductDAO();

@@ -13,6 +13,14 @@ import java.util.HashMap;
 import static com.gamebuy.store.utils.RequestStringToMap.requestInputStreamToMap;
 
 public class AdjustQuantityOfProductInBasketHandler implements HttpHandler {
+
+    /**
+     * Handles the adjustment of product quantity in the basket.
+     *
+     * @param exchange the exchange containing the request from the
+     *                 client and used to send the response
+     * @throws IOException
+     */
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
@@ -36,7 +44,7 @@ public class AdjustQuantityOfProductInBasketHandler implements HttpHandler {
 
         out.write(
                 "<html>" +
-						"<meta charset=\"utf-8\">"+
+                        "<meta charset=\"utf-8\">" +
                         "<head> <title>Quantity changed</title> " +
                         "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">" +
                         "</head>" +

@@ -1,7 +1,6 @@
 package com.gamebuy.store.service;
 
 import com.gamebuy.store.dao.AddressDAO;
-import com.gamebuy.store.dao.CustomerDAO;
 import com.gamebuy.store.domain.Address;
 
 public class AddressService {
@@ -16,13 +15,19 @@ public class AddressService {
 
     public static AddressService getInstance() {
         AddressDAO addressDAO = new AddressDAO();
-        CustomerDAO customerDAO = new CustomerDAO();
         if (instance == null) {
             instance = new AddressService(addressDAO);
         }
         return instance;
     }
 
+    /**
+     * Returns the address of a customer specified by customerId.
+     * Returns new empty address if address does not exist in database.
+     *
+     * @param customerId the id of customer who's address is required.
+     * @return Address of customerId supplied.
+     */
     public Address getCustomerAddress(int customerId) {
         Address address = addressDAO.getAddress(customerId);
         if (address == null) {
@@ -31,6 +36,11 @@ public class AddressService {
         return address;
     }
 
+    /**
+     * Accesses addressDAO update address method.
+     *
+     * @param address
+     */
     public void updateCustomerAddress(Address address) {
         addressDAO.updateAddress(
                 address.getCustomerId(),

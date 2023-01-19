@@ -9,6 +9,14 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 
 public class ClearBasketHandler implements HttpHandler {
+
+    /**
+     * Handles clearing basket functionality using basketService.
+     *
+     * @param exchange the exchange containing the request from the
+     *                 client and used to send the response
+     * @throws IOException
+     */
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 

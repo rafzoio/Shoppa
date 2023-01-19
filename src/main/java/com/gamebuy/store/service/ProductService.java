@@ -24,6 +24,10 @@ public class ProductService {
         return instance;
     }
 
+    /**
+     * Returns all existing product categories.
+     * @return all product categories
+     */
     public List<String> getAllProductTypes() {
         return productDAO.getAllProducts()
                 .stream()
@@ -32,13 +36,19 @@ public class ProductService {
                 .toList();
     }
 
-    public ArrayList<Product> filterProductsByType(ArrayList<Product> allProducts, String productType) {
-        if (productType.equals("All")) {
+    /**
+     * Returns a list of all products of a certain provided category.
+     * @param allProducts
+     * @param category
+     * @return list of products of specified category.
+     */
+    public ArrayList<Product> filterProductsByCategory(ArrayList<Product> allProducts, String category) {
+        if (category.equals("All")) {
             return allProducts;
         }
         List<Product> filteredProducts = allProducts
                 .stream()
-                .filter(product -> product.getCategory().equals(productType))
+                .filter(product -> product.getCategory().equals(category))
                 .toList();
 
         return new ArrayList<>(filteredProducts);

@@ -13,55 +13,63 @@ import java.util.Map;
 import static com.gamebuy.store.utils.RequestStringToMap.requestStringToMap;
 
 public class DeleteUserHandler implements HttpHandler {
-	public void handle(HttpExchange exchange) throws IOException {
 
-		System.out.println("DeleteUserHandler called");
+	/**
+	 * Handles deletion of an existing user.
+	 * @param exchange the exchange containing the request from the
+	 *                 client and used to send the response
+	 * @throws IOException
+	 */
+	@Override
+    public void handle(HttpExchange exchange) throws IOException {
 
-		exchange.sendResponseHeaders(200,0);
+        System.out.println("DeleteUserHandler called");
 
-		BufferedWriter out = new BufferedWriter(
-				new OutputStreamWriter(exchange.getResponseBody() ));
+        exchange.sendResponseHeaders(200, 0);
 
-		Map <String,String> params = requestStringToMap(exchange.getRequestURI().getQuery());
-		System.out.println(params);
+        BufferedWriter out = new BufferedWriter(
+                new OutputStreamWriter(exchange.getResponseBody()));
 
-		int id = Integer.parseInt(params.get("id"));
+        Map<String, String> params = requestStringToMap(exchange.getRequestURI().getQuery());
+        System.out.println(params);
 
-		UserDAO userDAO = new UserDAO();
+        int id = Integer.parseInt(params.get("id"));
 
-		User deletedUser = userDAO.getUserById(id);
+        UserDAO userDAO = new UserDAO();
 
-		userDAO.deleteUser(id);
+        User deletedUser = userDAO.getUserById(id);
 
-		out.write(
-				"<html>" +
-						"<meta charset=\"utf-8\">"+
-						"<head> <title>User Deleted</title> "+
-						"<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">" +
-						"</head>" +
-						"<body>" +
-						"<div class=\"container\">" +
-						"<h1>User Deleted</h1>"+
-						"<table class=\"table\">" +
-						"<thead>" +
-						"  <tr>" +
-						"    <th>ID</th>" +
-						"    <th>username</th>" +
-						"  </tr>" +
-						"</thead>" +
-						"<tbody>" +
-						"  <tr>"       +
-						"    <td>"+ deletedUser.getId() + "</td>" +
-						"    <td>"+ deletedUser.getUsername() + "</td>" +
-						"  </tr>" +
-						"</tbody>" +
-						"</table>" +
-						"<a href=\"/users\">Back to all users</a>" +
-						"</div>" +
-						"</body>" +
-						"</html>");
+        userDAO.deleteUser(id);
 
-		out.close();
+        out.write(
+                "<html>" +
+                        "<meta charset=\"utf-8\">" +
+                        "<head> <title>User Deleted</title> " +
+                        "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">" +
+                        "</head>" +
+                        "<body>" +
+                        "<div class=\"container\">" +
+                        "<h1>User Deleted</h1>" +
+                        "<table class=\"table\">" +
+                        "<thead>" +
+                        "  <tr>" +
+                        "    <th>ID</th>" +
+                        "    <th>username</th>" +
+                        "  </tr>" +
+                        "</thead>" +
+                        "<tbody>" +
+                        "  <tr>" +
+                        "    <td>" + deletedUser.getId() + "</td>" +
+                        "    <td>" + deletedUser.getUsername() + "</td>" +
+                        "  </tr>" +
+                        "</tbody>" +
+                        "</table>" +
+                        "<a href=\"/users\">Back to all users</a>" +
+                        "</div>" +
+                        "</body>" +
+                        "</html>");
 
-	}
+        out.close();
+
+    }
 }

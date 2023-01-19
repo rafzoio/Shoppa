@@ -14,69 +14,77 @@ import java.util.HashMap;
 
 import static com.gamebuy.store.utils.RequestStringToMap.requestStringToMap;
 
-public class AddProductToBasketFormHandler implements HttpHandler{
+public class AddProductToBasketFormHandler implements HttpHandler {
 
-	public void handle(HttpExchange exchange) throws IOException {
+    /**
+     * Handles form for adding product to the basket. Form data posted to AddProductToBasketHandler
+     *
+     * @param exchange the exchange containing the request from the
+     *                 client and used to send the response
+     * @throws IOException
+     */
+    @Override
+    public void handle(HttpExchange exchange) throws IOException {
 
-		System.out.println("AddProductToBasketFormHandler called");
-		exchange.sendResponseHeaders(200,0);
+        System.out.println("AddProductToBasketFormHandler called");
+        exchange.sendResponseHeaders(200, 0);
 
-		HashMap<String, String> params = requestStringToMap(exchange.getRequestURI().getQuery());
+        HashMap<String, String> params = requestStringToMap(exchange.getRequestURI().getQuery());
 
-		int productId = Integer.parseInt(params.get("id"));
+        int productId = Integer.parseInt(params.get("id"));
 
-		OrderItemService orderItemService = OrderItemService.getInstance();
-		ProductDAO productDAO = new ProductDAO();
+        OrderItemService orderItemService = OrderItemService.getInstance();
+        ProductDAO productDAO = new ProductDAO();
 
-		OrderItem orderItem;
+        OrderItem orderItem;
 
-		int currentAvailableQuantity;
+        int currentAvailableQuantity;
 
-		if (orderItemService.isOrderItemInBasket(1, productId)) {
-			orderItem = orderItemService.getOrderItem(1, productId);
-			currentAvailableQuantity = orderItemService.getCurrentAvailableOrderItemQuantity(orderItem);
-		} else {
-			orderItem = new OrderItem(1, productId, 0);
-			currentAvailableQuantity = productDAO.getProduct(productId).getAvailable();
-		}
+        if (orderItemService.isOrderItemInBasket(1, productId)) {
+            orderItem = orderItemService.getOrderItem(1, productId);
+            currentAvailableQuantity = orderItemService.getCurrentAvailableOrderItemQuantity(orderItem);
+        } else {
+            orderItem = new OrderItem(1, productId, 0);
+            currentAvailableQuantity = productDAO.getProduct(productId).getAvailable();
+        }
 
-		Product product = orderItemService.getOrderItemProduct(orderItem);
+        Product product = orderItemService.getOrderItemProduct(orderItem);
 
 
-		BufferedWriter out = new BufferedWriter(
-				new OutputStreamWriter(exchange.getResponseBody() ));
+        BufferedWriter out = new BufferedWriter(
+                new OutputStreamWriter(exchange.getResponseBody()));
 
-		out.write(
-				"<html>" +
-						"<meta charset=\"utf-8\">"+
-						"<head> <title>Add to Basket</title> "+
-						"<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">" +
-						"</head>" +
-						"<body>" +
-						"<div class=\"container\">"+
-						"<h1>Add to Basket</h1>"+
-						"<form method=\"post\" action=\"/products/addToBasket\">" +
-						"<div class=\"form-group\"> "+
+        out.write(
+                "<html>" +
+                        "<meta charset=\"utf-8\">" +
+                        "<head> <title>Add to Basket</title> " +
+                        "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">" +
+                        "</head>" +
+                        "<body>" +
+                        "<div class=\"container\">" +
+                        "<h1>Add to Basket</h1>" +
+                        "<form method=\"post\" action=\"/products/addToBasket\">" +
+                        "<div class=\"form-group\"> " +
 
-						"<label for=\"id\">ID</label> " +
-						"<input value=\"" + product.getId() + "\" type=\"text\" class=\"form-control\" readonly=\"readonly\" name=\"id\" id=\"id\"> " +
+                        "<label for=\"id\">ID</label> " +
+                        "<input value=\"" + product.getId() + "\" type=\"text\" class=\"form-control\" readonly=\"readonly\" name=\"id\" id=\"id\"> " +
 
-						"<label for=\"sku\">SKU</label> " +
-						"<input value=\"" + product.getSKU() + "\" type=\"text\" class=\"form-control\" disabled name=\"sku\" id=\"sku\"> " +
+                        "<label for=\"sku\">SKU</label> " +
+                        "<input value=\"" + product.getSKU() + "\" type=\"text\" class=\"form-control\" disabled name=\"sku\" id=\"sku\"> " +
 
-						"<label for=\"quantity\">Quantity</label> " +
-						"<input type=\"number\" class=\"form-control\" name=\"quantity\" id=\"quantity\" required max=\"" + currentAvailableQuantity + "\"> " +
+                        "<label for=\"quantity\">Quantity</label> " +
+                        "<input type=\"number\" class=\"form-control\" name=\"quantity\" id=\"quantity\" required max=\"" + currentAvailableQuantity + "\"> " +
 
-						"</div>" +
-						"<button type=\"submit\" class=\"btn btn-primary\">Submit</button> " +
-						"</form>" +
-						"<a href=\"/products\">Cancel</a>"+
-						"</div>" +
-						"</body>" +
-						"</html>");
+                        "</div>" +
+                        "<button type=\"submit\" class=\"btn btn-primary\">Submit</button> " +
+                        "</form>" +
+                        "<a href=\"/products\">Cancel</a>" +
+                        "</div>" +
+                        "</body>" +
+                        "</html>");
 
-		out.close();
+        out.close();
 
-	}
+    }
 
 }
