@@ -1,4 +1,4 @@
-# GameBuy 
+# Shoppa 
 ##### An online store built in Java. Raphael Zoio January 2023
 Project available on [GitHub]("https://github.com/rafzoio/GameBuy")
 
